@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0e17">
+  <title>AegisPost | Next-Gen Website Security Posture & Phishing Detector</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <!-- Background Glow & Grid Canvas -->
+  <div class="cyber-bg-glow" aria-hidden="true"></div>
+  <div class="cyber-grid" aria-hidden="true"></div>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="AegisPost Home">
+      <div class="brand-shield">
+        <span class="brand-icon">◈</span>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">Aegis<span class="brand-accent">Post</span></span>
+        <span class="brand-tag">SECURITY INTEL</span>
+      </div>
+    </a>
+    <div class="header-status">
+      <span class="pulse-dot"></span>
+      <span class="status-text">AI Scanner Active</span>
+    </div>
+    <nav class="nav-links">
+      <a class="nav-link" href="#methodology">How It Works</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+      <a class="nav-link highlight" href="#scanner">Run Scan <span>↓</span></a>
+    </nav>
+  </header>
+
+  <!-- Main Application Container -->
+  <main class="shell">
+    
+    <!-- Hero Scanner Section -->
+    <section class="hero" id="scanner" aria-labelledby="page-title">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>PASSIVE CYBERSECURITY AUDIT &amp; PHISHING DETECTOR</span>
+      </div>
+      
+      <h1 id="page-title">
+        Audit Website Security Posture<br>
+        <span class="gradient-text">In Seconds with Automated AI.</span>
+      </h1>
+      
+      <p class="intro">
+        Passive, zero-risk assessment of SSL/TLS encryption, Google Safe Browsing phishing threats, 
+        and defensive HTTP security headers. Includes free AI-generated remediation guidance for beginners.
+      </p>
+
+      <!-- URL Input Card -->
+      <div class="scanner-card">
+        <form id="check-form" class="url-form" novalidate>
+          <label for="url-input" class="input-label">Target Website URL</label>
+          <div class="input-row">
+            <span class="input-protocol">https://</span>
+            <input 
+              id="url-input" 
+              name="url" 
+              type="url" 
+              inputmode="url" 
+              autocomplete="url" 
+              placeholder="example.com or https://company.org" 
+              maxlength="2048" 
+              required 
+              aria-describedby="input-help error-message"
+            >
+            <button id="submit-button" type="submit" class="submit-btn">
+              <span class="btn-spinner" aria-hidden="true"></span>
+              <span class="button-text">Analyze Posture</span>
+              <span class="button-arrow" aria-hidden="true">⚡</span>
+            </button>
+          </div>
+          
+          <!-- Quick Sample Chips -->
+          <div class="quick-samples">
+            <span class="samples-label">Try instant samples:</span>
+            <button type="button" class="sample-chip" data-url="https://github.com">github.com</button>
+            <button type="button" class="sample-chip" data-url="https://wikipedia.org">wikipedia.org</button>
+            <button type="button" class="sample-chip" data-url="https://cloudflare.com">cloudflare.com</button>
+          </div>
+
+          <!-- Help & Disclaimer -->
+          <div class="field-meta">
+            <span id="input-help">
+              Passive review only: queries homepage headers, TLS handshake, public text files, and Google Safe Browsing. 
+              No intrusive scanning or penetration testing is performed.
+            </span>
+          </div>
+
+          <!-- Error Alert State -->
+          <div id="error-message" class="error-message" role="alert" hidden></div>
+        </form>
+
+        <!-- Scanning State Indicator -->
+        <div id="loading" class="scan-loading" role="status" aria-live="polite" hidden>
+          <div class="radar-box">
+            <div class="radar-sweep"></div>
+            <span class="radar-icon">🛡️</span>
+          </div>
+          <div class="scan-progress-info">
+            <div class="scan-title">Conducting Passive Security Audit...</div>
+            <div class="scan-steps">
+              <span class="step-item active" id="step-1">Verifying DNS &amp; Host</span>
+              <span class="step-separator">›</span>
+              <span class="step-item" id="step-2">Inspecting SSL/TLS</span>
+              <span class="step-separator">›</span>
+              <span class="step-item" id="step-3">Evaluating Headers</span>
+              <span class="step-separator">›</span>
+              <span class="step-item" id="step-4">Checking Threat Intel</span>
+            </div>
+            <p id="progress-text" class="scan-detail-text">Connecting to public homepage...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scan Results Dashboard (Populated via JS) -->
+    <section id="results" class="results" aria-live="polite" hidden></section>
+
+    <!-- Information & Methodology Pillars -->
+    <section class="methodology-section" id="methodology">
+      <div class="section-badge">METHODOLOGY</div>
+      <h2 class="section-title">A Safer, Passive Approach to Web Security</h2>
+      <p class="section-subtitle">Understand how AegisPost assesses risk without ever probing or attacking servers.</p>
+      
+      <div class="pillars-grid">
+        <article class="pillar-card">
+          <div class="pillar-icon green">🔒</div>
+          <h3>What We Analyze</h3>
+          <p>
+            SSL/TLS certificate presentation, HTTP-to-HTTPS enforcement, defensive HTTP headers (CSP, HSTS, X-Content-Type-Options, Referrer-Policy), 
+            framing controls, cookie security flags, and public security disclosures (security.txt).
+          </p>
+        </article>
+
+        <article class="pillar-card">
+          <div class="pillar-icon cyan">🔍</div>
+          <h3>Google Safe Browsing</h3>
+          <p>
+            Real-time reputation cross-reference against Google's global threat database to detect active phishing campaigns, 
+            social engineering domains, and malicious downloads.
+          </p>
+        </article>
+
+        <article class="pillar-card">
+          <div class="pillar-icon amber">🤖</div>
+          <h3>Free AI Remediation</h3>
+          <p>
+            Integrated with free-tier AI models (Google Gemini 1.5 Flash or Groq Cloud) to translate technical cryptographic 
+            and header gaps into plain-English advice and copy-paste server snippets.
+          </p>
+        </article>
+
+        <article class="pillar-card">
+          <div class="pillar-icon rose">⛔</div>
+          <h3>What We Never Do</h3>
+          <p>
+            Strictly zero penetration testing, exploit payloads, credential bruteforcing, or port scans. 
+            All checks are purely passive observations of public metadata that every standard browser receives.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Beginner FAQ & Guidelines -->
+    <section class="faq-section" id="faq">
+      <div class="section-badge">SECURITY PRIMER</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-accordion">
+        <details class="faq-item">
+          <summary>Does a 100/100 score mean a website is completely unhackable?</summary>
+          <div class="faq-content">
+            <p>
+              No. A 100/100 score means the public homepage observes all recommended modern defensive headers, strict TLS encryption, 
+              and has no reported phishing listing. However, underlying application vulnerabilities (such as SQL injection or authentication flaws) 
+              cannot and should not be tested via passive scanning.
+            </p>
+          </div>
+        </details>
+        
+        <details class="faq-item">
+          <summary>Why does missing a single header matter?</summary>
+          <div class="faq-content">
+            <p>
+              Security operates on defense-in-depth. For instance, without <strong>Strict-Transport-Security (HSTS)</strong>, attackers on public Wi-Fi can downgrade users to unencrypted HTTP. Without <strong>Content-Security-Policy (CSP)</strong>, cross-site scripting (XSS) attacks can steal user tokens.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can I safely check any public website?</summary>
+          <div class="faq-content">
+            <p>
+              Yes, passive observation only views the public headers sent to any standard web browser. However, as standard ethical security practice, we recommend auditing your own domains or systems you have authorization to assess.
+            </p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Page Footer -->
+    <footer class="site-footer">
+      <div class="footer-left">
+        <div class="brand-text-sm">◈ AegisPost Security Suite</div>
+        <p>Built for modern web developers, DevOps engineers, and security beginners.</p>
+      </div>
+      <div class="footer-right">
+        <span>Passive Inspection Only · Non-Intrusive</span>
+        <span>Supports Google Gemini &amp; Safe Browsing API</span>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>

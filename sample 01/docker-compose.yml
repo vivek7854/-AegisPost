@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  aegispost:
+    build: .
+    container_name: aegispost-cyber-suite
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    restart: unless-stopped
